@@ -1,0 +1,21 @@
+<div class="modal-bg" id="modal-bg" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0008;z-index:1000;justify-content:center;align-items:center;">
+  <div class="modal" style="background:#fff;padding:2rem 1.5rem;border-radius:12px;max-width:350px;width:90%;box-shadow:0 4px 24px #0002;position:relative;">
+    <button id="close-modal" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
+    <h2 style="margin-top:0">Registrate</h2>
+    <form id="registro-form">
+      <label for="nombre">Nombre</label><br>
+      <input type="text" id="nombre" name="nombre" required style="width:100%;margin-bottom:1rem;padding:0.5rem;border-radius:6px;border:1px solid #e5e7eb;">
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" required style="width:100%;margin-bottom:1rem;padding:0.5rem;border-radius:6px;border:1px solid #e5e7eb;">
+      <label for="perfil">¿Qué buscas?</label><br>
+      <select id="perfil" name="perfil" required style="width:100%;margin-bottom:1.5rem;padding:0.5rem;border-radius:6px;border:1px solid #e5e7eb;">
+        <option value="">Selecciona una opción</option>
+        <option value="primer empleo">Mi primer empleo tech</option>
+        <option value="freelance">Proyectos freelance</option>
+        <option value="cambio">Cambio de trabajo</option>
+      </select>
+      <button type="submit" class="cta-btn" style="width:100%;">Registrarme</button>
+    </form>
+    <div id="registro-exito" style="display:none;margin-top:1rem;color:var(--accent);font-weight:600;">¡Registro exitoso! Nos pondremos en contacto.</div>
+  </div>
+</div>

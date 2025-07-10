@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Anto Startup - Encuentra tu trabajo tech fácil y rápido</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <!-- Secciones importadas -->
+  <div class="main-flex-container">
+    <div class="main-column">
+      <div id="header"></div>
+      <div id="benefits"></div>
+      <div id="testimonials"></div>
+      <div id="how-it-works"></div>
+      <div id="final-cta"></div>
+      <div id="footer"></div>
+    </div>
+    <div class="side-column">
+      <div id="about"></div>
+      <div id="contact"></div>
+    </div>
+  </div>
+  <div id="modal-registro-container"></div>
+  <script>
+    // Utilidad para cargar HTML externo en un div
+    function loadSection(id, file, callback) {
+      fetch(file)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+          if (callback) callback();
+        });
+    }
+    // Cargar secciones y luego asignar eventos a los botones CTA
+    loadSection('header', 'assets/header.html', addCtaListeners);
+    loadSection('benefits', 'assets/benefits.html');
+    loadSection('testimonials', 'assets/testimonials.html');
+    loadSection('how-it-works', 'assets/how-it-works.html');
+    loadSection('final-cta', 'assets/final-cta.html', addCtaListeners);
+    loadSection('footer', 'assets/footer.html');
+    loadSection('modal-registro-container', 'assets/modal-registro.html');
+    loadSection('about', 'assets/about.html');
+    loadSection('contact', 'assets/contact.html');
+
+    function showRegistroModal() {
+      const modal = document.getElementById('modal-bg');
+      if (modal) modal.style.display = 'flex';
+    }
+    function hideRegistroModal() {
+      const modal = document.getElementById('modal-bg');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function addCtaListeners() {
+      // Botón del header
+      const btnHeader = document.getElementById('cta-registro');
+      if (btnHeader) {
+        btnHeader.onclick = function() {
+          showRegistroModal();
+        };
+      }
+      // Botón del CTA final
+      const btnFinal = document.getElementById('cta-registro-final');
+      if (btnFinal) {
+        btnFinal.onclick = function() {
+          showRegistroModal();
+        };
+      }
+      // Cerrar modal
+      const closeModal = document.getElementById('close-modal');
+      if (closeModal) {
+        closeModal.onclick = hideRegistroModal;
+      }
+      // Enviar formulario
+      const form = document.getElementById('registro-form');
+      if (form) {
+        form.onsubmit = function(e) {
+          e.preventDefault();
+          document.getElementById('registro-exito').style.display = 'block';
+          form.style.display = 'none';
+        };
+      }
+      // Cerrar modal al hacer click fuera
+      const modalBg = document.getElementById('modal-bg');
+      if (modalBg) {
+        modalBg.onclick = function(e) {
+          if (e.target === modalBg) hideRegistroModal();
+        };
+      }
+    }
+    // Esperar a que el modal esté cargado antes de asignar listeners
+    setTimeout(addCtaListeners, 500);
+  </script>
+</body>
+</html>
+      // Cerrar modal al hacer click fuera
+      const modalBg = document.getElementById('modal-bg');
+      if (modalBg) {
+        modalBg.onclick = function(e) {
+          if (e.target === modalBg) hideRegistroModal();
+        };
+      }
+    }
+    // Esperar a que el modal esté cargado antes de asignar listeners
+    setTimeout(addCtaListeners, 500);
+  </script>
+</body>
+</html>

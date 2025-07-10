@@ -1,0 +1,36 @@
+<nav class="main-nav">
+  <div class="logo">Anto Startup</div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#header">Home</a></li>
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+<section id="about" style="display:none;"></section>
+<section id="contact" style="display:none;"></section>
+<header>
+  <h1>Encuentra tu próximo trabajo tech en minutos, no en meses.</h1>
+  <p>Conectamos programadores y talentos digitales con empleadores usando inteligencia artificial. Rápido, simple y sin complicaciones.</p>
+  <button class="cta-btn" id="cta-registro">Registrate gratis y agendá una demo</button>
+</header>
+<script>
+  // Menú hamburguesa responsive
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (navToggle && navLinks) {
+    navToggle.onclick = function() {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    };
+    // Cerrar menú al hacer click en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.onclick = () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+      };
+    });
+  }
+</script>
